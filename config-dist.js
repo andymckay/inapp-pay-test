@@ -29,13 +29,18 @@ module.exports = function(config) {
      mozPayType: 'mozilla-dev/payments/pay/v1',
      mozPayKey: '...',
      mozPaySecret: '...'},
+    {name: 'payments-alt.allizom.org (payments-alt)',
+     mozPayAudience: 'payments-alt.allizom.org',
+     mozPayType: 'mozilla-alt/payments/pay/v1',
+     mozPayKey: '...',
+     mozPaySecret: '...'},
   ];
 
   if (isStackato) {
     config.isSecure = true;
   } else {
     config.servers.push({
-      name: 'fireplace.local',
+      name: 'firefoxmarketlocal',
       mozPayAudience: 'localhost',
       mozPayType: 'mozilla-local/payments/pay/v1',
       mozPayKey: '...',
@@ -53,3 +58,4 @@ module.exports = function(config) {
   config.extHost = app.uris[0];
   config.extPort = process.env.VCAP_APP_PORT ? null: config.port;
 }
+
